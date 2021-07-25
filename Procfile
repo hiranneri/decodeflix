@@ -1,0 +1,1 @@
+web: node src/index.js && knex migrate:latest
