@@ -1,9 +1,10 @@
 const PreenchimentoIncorreto = require('../erros/PreeenchimentoIncorreto')
 const Filme = require('../model/Filme')
+const FilmeRepository = require('../../banco/models')
 
 module.exports = {
-    listar(){
-        const filmes = ['DocodeFlix', 'Homem-Aranha', 'Batman'];
+    async listar(){
+        const filmes = await FilmeRepository.filmes.findAll();
         return filmes;
     },
     cadastrar(filme){
