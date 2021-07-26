@@ -16,35 +16,32 @@ Base_URL: https://decodeflix.herokuapp.com/api
 - Login GET - Filmes
 
 <p> {{ _.base_url }}/filmes </p>
-
-    Resposta:
-
 <code>
-	{
-  "filmes": [
-    {
-      "id": 1,
-      "nome": "Vovozona",
-      "genero": "Comédia",
-      "createdAt": "2021-07-26T07:21:10.968Z",
-      "updatedAt": "2021-07-26T07:21:10.968Z"
-    },
-    {
-      "id": 2,
-      "nome": "Todo mundo em pânico",
-      "genero": "Comédia",
-      "createdAt": "2021-07-26T07:21:10.969Z",
-      "updatedAt": "2021-07-26T07:21:10.969Z"
-    },
-    {
-      "id": 3,
-      "nome": "Minha mãe é uma peça",
-      "genero": "Comédia",
-      "createdAt": "2021-07-26T07:21:10.969Z",
-      "updatedAt": "2021-07-26T07:21:10.969Z"
-    }
-  ]
-}
+ Resposta:
+
+    "filmes": [
+        {
+            "id": 1,
+            "nome": "Vovozona",
+            "genero": "Comédia",
+            "createdAt": "2021-07-26T07:21:10.968Z",
+            "updatedAt": "2021-07-26T07:21:10.968Z"
+        },
+        {
+            "id": 2,
+            "nome": "Todo mundo em pânico",
+            "genero": "Comédia",
+            "createdAt": "2021-07-26T07:21:10.969Z",
+            "updatedAt": "2021-07-26T07:21:10.969Z"
+        },
+        {
+            "id": 3,
+            "nome": "Minha mãe é uma peça",
+            "genero": "Comédia",
+            "createdAt": "2021-07-26T07:21:10.969Z",
+            "updatedAt": "2021-07-26T07:21:10.969Z"
+        }
+    ]
 
 </code>
 	
