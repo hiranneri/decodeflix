@@ -23,6 +23,17 @@ router.post('/', validacaoFilme,  async (requisicao,resposta,proximo) =>{
     }
 });
 
+router.get('/:id/espectadores', async(requisicao,resposta, proximo)=>{
+    try {
+        let {id} = requisicao.params;
+        const dados = Object.assign({}, {filme:{id}})
+        const filmes = await FilmesController.pesquisarEspectadoresPorFilme(dados)
+        return resposta.status(200).json({filmes})
+    } catch (error) {
+        proximo(error)
+    }
+})
+
 
 
 module.exports = router;

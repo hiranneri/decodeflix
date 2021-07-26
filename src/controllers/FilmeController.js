@@ -11,5 +11,13 @@ module.exports = {
         let filmeCadastrado = new Filme(filme)
         await filmeCadastrado.salvar();    
         return filmeCadastrado;
+    },
+    async pesquisarEspectadoresPorFilme(dados){
+        const dadosFilme = dados.filme
+        const filme = new Filme(dadosFilme)
+        const totalEspectadores = await filme.listarEspectadoresPorFilme();
+        return {
+            message: `${totalEspectadores} espectadores viram o filme`
+        }
     }
 }
