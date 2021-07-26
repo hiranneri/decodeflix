@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const FilmesController = require('../../controllers/FilmeController');
+const validacaoFilme = require('../../middlewares/Filmes/index').validacao
 
 router.get('/', async (requisicao, resposta, proximo)=>{
     try {
@@ -11,10 +12,10 @@ router.get('/', async (requisicao, resposta, proximo)=>{
     }
 })
 
-router.post('/', async (requisicao,resposta,proximo) =>{
+router.post('/', validacaoFilme,  async (requisicao,resposta,proximo) =>{
     try {
         const filme = Object.assign({}, requisicao.body)
-        let filmeCadastrado =  FilmesController.cadastrar(filme)
+        let filmeCadastrado = await FilmesController.cadastrar(filme)
         return resposta.status(201).json({filme:filmeCadastrado})
         
     } catch (erro) {

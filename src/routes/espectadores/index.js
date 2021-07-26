@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const EspectadoresController = require('../../controllers/EspectadoresController');
-const validacao = require('../../middlewares/Validacao/index').validacao
+const validacao = require('../../middlewares/Espectadores/index').validacao
 
 router.get('/', async (requisicao, resposta, proximo)=>{
     try {
