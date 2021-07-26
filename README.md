@@ -139,6 +139,12 @@ Resposta:
 - Para criação das tabelas, no seu terminal digite o comando dentro da pasta do projeto:
   <code> sequelize-cli db:migrate && sequelize-cli db:seed:all </code>
 
+  - MER
+
+    <p>
+      <img src="banco/MER/MER.png">
+  </p>
+
 # Tecnologias Usadas:
 
 - NodeJS
