@@ -33,7 +33,7 @@ app.use((erro, requisicao, resposta, proximo)=>{
   }else if(erro.code === '23505'){
       return resposta.status(400).json({message: 'Já existe um cadastro com estes dados'})
   } else{
-      console.log(erro.message)
+      console.log(erro)
       return resposta.status(500).json({message: 'Ocorreu um erro interno. Tente novamente mais tarde'})
   }
 

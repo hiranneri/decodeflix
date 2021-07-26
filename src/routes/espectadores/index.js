@@ -22,6 +22,18 @@ router.post('/', validacao, async (requisicao,resposta,proximo) =>{
     }
 });
 
+router.post('/:id/filme/:idFilme/visto', async(requisicao,resposta, proximo)=>{
+    try {
+        let {id, idFilme} = requisicao.params;
+        let {filme} = requisicao.body;
+        const dados = Object.assign({}, {espectador: {id}}, {filme:{id: idFilme, nome: filme}})
+        await EspectadoresController.marcarVisto(dados)
+        return resposta.status(200).json({message: "Marcado como visto"})   
+    } catch (error) {
+        proximo(error)
+    }
+} )
+
 
 
 

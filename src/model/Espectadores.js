@@ -1,4 +1,5 @@
-const EspectadoresRepository = require('../../banco/models')
+const EspectadoresRepository = require('../../banco/models');
+const NaoEncontrado = require('../erros/NaoEncontrado');
 class Espectadores{
     constructor({id, nome, dataCriacao, dataAtualizacao}){
         this.id = id,
@@ -20,6 +21,19 @@ class Espectadores{
     static async listar(){
         const espectadores = await EspectadoresRepository.espectadores.findAll();
         return espectadores;
+    }
+    async listaPorId(){
+        const espectador = await EspectadoresRepository.espectadores.findOne({
+            where:{
+                id: Number(this.id)
+            }
+        })
+        if(espectador){
+            return espectador
+
+        }else{
+            throw new NaoEncontrado(`Não foi encontrado o espectador com o id ${id}`);
+        }
     }
 
 
