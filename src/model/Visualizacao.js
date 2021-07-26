@@ -1,4 +1,5 @@
-const VisualizacaoRepository = require('../../banco/models')
+const VisualizacaoRepository = require('../../banco/models');
+const NaoEncontrado = require('../erros/NaoEncontrado');
 
 class Visualizacao{
     constructor({id, idFilme, idEspectadores, dataCriacao, dataAtualizacao}){
@@ -20,6 +21,23 @@ class Visualizacao{
         this.espectadores_id = filmeVisto.espectadores_id
         this.dataCriacao = filmeVisto.createdAt;
     }
+    async filmesVistos(){
+        let total=0;
+        const filmes = await VisualizacaoRepository.visualizacoes.findAll({
+            where:{
+                espectadores_id: Number(this.espectadores_id)
+            }
+        })
+        if(filmes){
+            filmes.forEach(filme => {
+                total++;
+            });
+            return total
+        }else{
+            throw new NaoEncontrado('Nenhum filme foi visualizado')
+        }
+    }
+
     
 
 

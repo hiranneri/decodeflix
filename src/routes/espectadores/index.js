@@ -32,7 +32,19 @@ router.post('/:id/filme/:idFilme/visto', async(requisicao,resposta, proximo)=>{
     } catch (error) {
         proximo(error)
     }
-} )
+})
+
+router.get('/:id/filme/:idFilme/visto', async(requisicao,resposta, proximo)=>{
+    try {
+        let {id, idFilme} = requisicao.params;
+        let {filme} = requisicao.body;
+        const dados = Object.assign({}, {espectador: {id}}, {filme:{id: idFilme, nome: filme}})
+        const filmes = await EspectadoresController.filmesVistos(dados)
+        return resposta.status(200).json({filmes})
+    } catch (error) {
+        proximo(error)
+    }
+})
 
 
 

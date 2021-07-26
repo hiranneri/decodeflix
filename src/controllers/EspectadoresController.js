@@ -22,6 +22,18 @@ module.exports = {
 
         const visualizacao = new Visualizacao({idFilme: filme.id, idEspectadores: espectador.id})
         visualizacao.salvar()
+    },
+    async filmesVistos(dados){
+        const dadosEspectador = dados.espectador
+        const dadosFilme = dados.filme
+        const espectador = new Espectadores(dadosEspectador)
+        await espectador.listaPorId()
+        const filme = new Filme(dadosFilme)
+        await filme.listaPorId()
+
+        const visualizacao = new Visualizacao({idFilme: filme.id, idEspectadores: espectador.id})
+        const totalFilmes = await visualizacao.filmesVistos()
+        return {message: `Foram vistos ${totalFilmes} filme(s)`}
     }
 
 }
