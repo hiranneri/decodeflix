@@ -1,9 +1,8 @@
 const PreenchimentoIncorreto = require('../../erros/PreeenchimentoIncorreto'); 
 
 const validacao = (requisicao,resposta,next)=>{    
-    const {nome} = requisicao.body;
     const campos = ['nome'];
-    const dados = nome
+    const dados = requisicao.body;
     const dadosParaValidar = {}
     campos.forEach((campo)=>{
         const valor = dados[campo]

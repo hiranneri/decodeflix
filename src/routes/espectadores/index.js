@@ -15,7 +15,7 @@ router.get('/', async (requisicao, resposta, proximo)=>{
 router.post('/', validacao, async (requisicao,resposta,proximo) =>{
     try {
         const espectador = Object.assign({}, requisicao.body)
-        let espectadorCadastrado =  EspectadoresController.cadastrar(espectador)
+        let espectadorCadastrado = await EspectadoresController.cadastrar(espectador)
         return resposta.status(201).json({espectador:espectadorCadastrado})        
     } catch (erro) {
         proximo(erro)

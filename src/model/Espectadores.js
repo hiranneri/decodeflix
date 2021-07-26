@@ -1,3 +1,4 @@
+const EspectadoresRepository = require('../../banco/models')
 class Espectadores{
     constructor({id, nome, dataCriacao, dataAtualizacao}){
         this.id = id,
@@ -6,8 +7,15 @@ class Espectadores{
         this.dataAtualizacao = dataAtualizacao
     }
     async salvar(){
-        this.id = 1;           
-        return this;             
+        const espectadorCadastrado =  await EspectadoresRepository.espectadores.create(this);        
+        this.atualizarEspectadorCadastrado(espectadorCadastrado);
+        return espectadorCadastrado;
+     
+    }
+    atualizarEspectadorCadastrado(espectadorCadastrado){
+        this.id = espectadorCadastrado.id;
+        this.nome = espectadorCadastrado.nome;
+        this.genero = espectadorCadastrado.genero;
     }
 
 

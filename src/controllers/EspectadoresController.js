@@ -6,12 +6,10 @@ module.exports = {
         const espectadores = ['Hiran','Neri'];
         return espectadores;
     },
-    cadastrar(espectador){
-        this.validarCampos(espectador);
+    async cadastrar(espectador){
         const espectadorCadastrado = new Espectadores(espectador)
-        espectadorCadastrado.salvar();
+        await espectadorCadastrado.salvar();
         return espectadorCadastrado;
-    },
-  
+    }
 
 }
