@@ -1,6 +1,6 @@
 const path = require('path');
 module.exports = {
-  'config':          path.resolve('./banco', 'config', 'config.json'),
+  'config':          path.resolve('./banco', 'config', 'config.js'),
   'migrations-path': path.resolve('banco', 'migrations'),
   'models-path':     path.resolve('banco', 'models'),
   'seeders-path':    path.resolve('banco', 'seeders'),
