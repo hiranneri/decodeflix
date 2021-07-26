@@ -1,1 +1,1 @@
-web: node src/index.js && sequelize-cli db:migrate --env production && sequelize-cli db:seed:all
+web: node src/index.js && sequelize-cli db:migrate --env production && sequelize-cli db:seed:all 
