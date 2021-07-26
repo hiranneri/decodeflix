@@ -4,8 +4,8 @@ const validacao = require('../../middlewares/Espectadores/index').validacao
 
 router.get('/', async (requisicao, resposta, proximo)=>{
     try {
-        const espectadores = EspectadoresController.listar();
-        return resposta.status(200).json(espectadores)
+        const espectadores = await EspectadoresController.listar();
+        return resposta.status(200).json({espectadores})
         
     } catch (erro) {
         proximo(erro)
@@ -21,6 +21,8 @@ router.post('/', validacao, async (requisicao,resposta,proximo) =>{
         proximo(erro)
     }
 });
+
+
 
 
 

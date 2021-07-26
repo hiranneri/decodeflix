@@ -17,6 +17,10 @@ class Espectadores{
         this.nome = espectadorCadastrado.nome;
         this.genero = espectadorCadastrado.genero;
     }
+    static async listar(){
+        const espectadores = await EspectadoresRepository.espectadores.findAll();
+        return espectadores;
+    }
 
 
 
